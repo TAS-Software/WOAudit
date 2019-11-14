@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LiveThas01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="THAS_CONNECT_CopyLiveWODatasetToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <Function Name="THAS_CONNECT_CopyWODatasetToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <Function Name="THAS_CONNECT_CopyWO_NumbersToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" StoreFunctionName="THAS_CONNECT_CopyWO-NumbersToTable" />
+        <Function Name="THAS_CONNECT_CopyWOP_NumbersToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" StoreFunctionName="THAS_CONNECT_CopyWOP-NumbersToTable" />
+        <Function Name="THAS_CONNECT_CopyWO_WOP_NumbersToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" StoreFunctionName="THAS_CONNECT_CopyWO-WOP-NumbersToTable" />
+        <Function Name="THAS_CONNECT_GetLiveWONumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOTID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="THAS_CONNECT_GetLiveWOPNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOPartID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="THAS_CONNECT_GetWONumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOTID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="THAS_CONNECT_GetWOPNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOPartID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="LiveThas01ModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LiveThas01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="liveThas01Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="THAS_CONNECT_CopyLiveWODatasetToTable" />
+          <FunctionImport Name="THAS_CONNECT_CopyWODatasetToTable" />
+          <FunctionImport Name="THAS_CONNECT_GetWOPNumber" ReturnType="Collection(Int32)">
+          <Parameter Name="WOPartID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_CopyWO_WOP_NumbersToTable" />
+          <FunctionImport Name="THAS_CONNECT_GetLiveWOPNumber" ReturnType="Collection(Int32)">
+          <Parameter Name="WOPartID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_GetLiveWONumber" ReturnType="Collection(Int32)">
+          <Parameter Name="WOTID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_GetWONumber" ReturnType="Collection(Int32)">
+          <Parameter Name="WOTID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_CopyWO_NumbersToTable" />
+          <FunctionImport Name="THAS_CONNECT_CopyWOP_NumbersToTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LiveThas01ModelStoreContainer" CdmEntityContainer="liveThas01Entities" >
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyLiveWODatasetToTable" FunctionName="LiveThas01Model.Store.THAS_CONNECT_CopyLiveWODatasetToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWODatasetToTable" FunctionName="LiveThas01Model.Store.THAS_CONNECT_CopyWODatasetToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetWOPNumber" FunctionName="LiveThas01Model.Store.THAS_CONNECT_GetWOPNumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWO_WOP_NumbersToTable" FunctionName="LiveThas01Model.Store.THAS_CONNECT_CopyWO_WOP_NumbersToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetLiveWOPNumber" FunctionName="LiveThas01Model.Store.THAS_CONNECT_GetLiveWOPNumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetLiveWONumber" FunctionName="LiveThas01Model.Store.THAS_CONNECT_GetLiveWONumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetWONumber" FunctionName="LiveThas01Model.Store.THAS_CONNECT_GetWONumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWO_NumbersToTable" FunctionName="LiveThas01Model.Store.THAS_CONNECT_CopyWO_NumbersToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWOP_NumbersToTable" FunctionName="LiveThas01Model.Store.THAS_CONNECT_CopyWOP_NumbersToTable" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

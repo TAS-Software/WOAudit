@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="thas01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="THAS_CONNECT_CopyLiveWODatasetToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <Function Name="THAS_CONNECT_CopyWODatasetToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <Function Name="THAS_CONNECT_CopyWO_NumbersToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" StoreFunctionName="THAS_CONNECT_CopyWO-NumbersToTable" />
+        <Function Name="THAS_CONNECT_CopyWOP_NumbersToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" StoreFunctionName="THAS_CONNECT_CopyWOP-NumbersToTable" />
+        <Function Name="THAS_CONNECT_GetCurrentWOState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <Function Name="THAS_CONNECT_GetLiveWONumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOTID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="THAS_CONNECT_GetLiveWOPNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOPartID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="THAS_CONNECT_GetWONumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOTID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="THAS_CONNECT_GetWOPNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS">
+          <Parameter Name="WOPartID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="thas01ModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="thas01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="reportThas01Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="THAS_CONNECT_GetCurrentWOState" ReturnType="Collection(thas01Model.THAS_CONNECT_GetCurrentWOState_Result)" />
+          <FunctionImport Name="THAS_CONNECT_CopyLiveWODatasetToTable" />
+          <FunctionImport Name="THAS_CONNECT_CopyWODatasetToTable" />
+          <FunctionImport Name="THAS_CONNECT_CopyWO_NumbersToTable" />
+          <FunctionImport Name="THAS_CONNECT_CopyWOP_NumbersToTable" />
+          <FunctionImport Name="THAS_CONNECT_GetLiveWONumber" ReturnType="Collection(Int32)">
+            <Parameter Name="WOTID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_GetLiveWOPNumber" ReturnType="Collection(Int32)">
+            <Parameter Name="WOPartID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_GetWONumber" ReturnType="Collection(Int32)">
+            <Parameter Name="WOTID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="THAS_CONNECT_GetWOPNumber" ReturnType="Collection(Int32)">
+            <Parameter Name="WOPartID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="THAS_CONNECT_GetCurrentWOState_Result">
+          <Property Type="Int32" Name="WOPart" Nullable="true" />
+          <Property Type="Int32" Name="WOTID" Nullable="true" />
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="WorksOrderType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MethodType" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="QuantityStored" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="String" Name="RCode" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="OnHold" Nullable="true" />
+          <Property Type="Boolean" Name="Exclude" Nullable="true" />
+          <Property Type="String" Name="PartIssueNumber" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ActualReceiptDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="partID" Nullable="true" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="25" />
+          <Property Type="Decimal" Name="PlannedIssueQuantity" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="ActualIssueQuantity" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="DateTime" Name="PlannedIssueDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderIssueStatus" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Issued" Nullable="true" />
+          <Property Type="Boolean" Name="IsStoreRequest" Nullable="true" />
+          <Property Type="Int32" Name="SequenceNo" Nullable="true" />
+          <Property Type="Boolean" Name="MRPIgnore" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="thas01ModelStoreContainer" CdmEntityContainer="reportThas01Entities" >
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetCurrentWOState" FunctionName="thas01Model.Store.THAS_CONNECT_GetCurrentWOState">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="thas01Model.THAS_CONNECT_GetCurrentWOState_Result">
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="MethodType" ColumnName="MethodType" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="RCode" ColumnName="RCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="PartIssueNumber" ColumnName="PartIssueNumber" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="partID" ColumnName="partID" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WorksOrderIssueStatus" ColumnName="WorksOrderIssueStatus" />
+                <ScalarProperty Name="Issued" ColumnName="Issued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyLiveWODatasetToTable" FunctionName="thas01Model.Store.THAS_CONNECT_CopyLiveWODatasetToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWODatasetToTable" FunctionName="thas01Model.Store.THAS_CONNECT_CopyWODatasetToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWO_NumbersToTable" FunctionName="thas01Model.Store.THAS_CONNECT_CopyWO_NumbersToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWOP_NumbersToTable" FunctionName="thas01Model.Store.THAS_CONNECT_CopyWOP_NumbersToTable" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetLiveWONumber" FunctionName="thas01Model.Store.THAS_CONNECT_GetLiveWONumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetLiveWOPNumber" FunctionName="thas01Model.Store.THAS_CONNECT_GetLiveWOPNumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetWONumber" FunctionName="thas01Model.Store.THAS_CONNECT_GetWONumber" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetWOPNumber" FunctionName="thas01Model.Store.THAS_CONNECT_GetWOPNumber" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

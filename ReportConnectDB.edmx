@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConnectDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="WOAuditChanges">
+          <Key>
+            <PropertyRef Name="WOAudit_ID" />
+          </Key>
+          <Property Name="WOAudit_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WOPart" Type="int" Nullable="false" />
+          <Property Name="WOTID" Type="int" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorksOrderType" Type="nvarchar" MaxLength="50" />
+          <Property Name="WOMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchQuantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnHold" Type="bit" Nullable="false" />
+          <Property Name="Exclude" Type="bit" Nullable="false" />
+          <Property Name="WOIssue" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompletionDate" Type="date" Nullable="false" />
+          <Property Name="ActualReceiptDate" Type="datetime" />
+          <Property Name="WorksOrderStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompPartID" Type="int" />
+          <Property Name="CompPartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlannedIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="date" />
+          <Property Name="WOCompIssueStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompIssued" Type="bit" />
+          <Property Name="IsStoreRequest" Type="bit" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="MRPIgnore" Type="bit" />
+          <Property Name="WOPLastModifiedDate" Type="datetime" />
+          <Property Name="WOLastModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WOAuditDump">
+          <Key>
+            <PropertyRef Name="WODump_ID" />
+          </Key>
+          <Property Name="WODump_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WOPart" Type="int" Nullable="false" />
+          <Property Name="WOTID" Type="int" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorksOrderType" Type="nvarchar" MaxLength="50" />
+          <Property Name="WOMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchQuantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnHold" Type="bit" Nullable="false" />
+          <Property Name="Exclude" Type="bit" Nullable="false" />
+          <Property Name="WOIssue" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompletionDate" Type="date" Nullable="false" />
+          <Property Name="ActualReceiptDate" Type="datetime" />
+          <Property Name="WorksOrderStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompPartID" Type="int" />
+          <Property Name="CompPartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlannedIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="date" />
+          <Property Name="WOCompIssueStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompIssued" Type="bit" />
+          <Property Name="IsStoreRequest" Type="bit" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="MRPIgnore" Type="bit" />
+          <Property Name="WOPLastModifiedDate" Type="datetime" />
+          <Property Name="WOLastModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WOAuditDumpLive">
+          <Key>
+            <PropertyRef Name="WODump_ID" />
+          </Key>
+          <Property Name="WODump_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WOPart" Type="int" Nullable="false" />
+          <Property Name="WOTID" Type="int" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorksOrderType" Type="nvarchar" MaxLength="50" />
+          <Property Name="WOMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchQuantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnHold" Type="bit" Nullable="false" />
+          <Property Name="Exclude" Type="bit" Nullable="false" />
+          <Property Name="WOIssue" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompletionDate" Type="date" Nullable="false" />
+          <Property Name="ActualReceiptDate" Type="datetime" />
+          <Property Name="WorksOrderStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompPartID" Type="int" />
+          <Property Name="CompPartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlannedIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="date" />
+          <Property Name="WOCompIssueStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompIssued" Type="bit" />
+          <Property Name="IsStoreRequest" Type="bit" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="MRPIgnore" Type="bit" />
+          <Property Name="WOPLastModifiedDate" Type="datetime" />
+          <Property Name="WOLastModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WOAuditEntry">
+          <Key>
+            <PropertyRef Name="WOAuditEntry_ID" />
+          </Key>
+          <Property Name="WOAuditEntry_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WOPart" Type="int" Nullable="false" />
+          <Property Name="WOTID" Type="int" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WOLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChangedFrom" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ChangedTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WOAuditWONumbers">
+          <Key>
+            <PropertyRef Name="WO_AuditID" />
+          </Key>
+          <Property Name="WO_AuditID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WOTID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WOAuditWOPNumbers">
+          <Key>
+            <PropertyRef Name="WOP_AuditID" />
+          </Key>
+          <Property Name="WOP_AuditID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WOPart" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WOPartAuditChanges">
+          <Key>
+            <PropertyRef Name="WOPartAudit_ID" />
+          </Key>
+          <Property Name="WOPartAudit_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WOPart" Type="int" Nullable="false" />
+          <Property Name="WOTID" Type="int" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorksOrderType" Type="nvarchar" MaxLength="50" />
+          <Property Name="WOMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchQuantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnHold" Type="bit" Nullable="false" />
+          <Property Name="Exclude" Type="bit" Nullable="false" />
+          <Property Name="WOIssue" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompletionDate" Type="date" Nullable="false" />
+          <Property Name="ActualReceiptDate" Type="datetime" />
+          <Property Name="WorksOrderStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompPartID" Type="int" />
+          <Property Name="CompPartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlannedIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="date" />
+          <Property Name="WOCompIssueStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompIssued" Type="bit" />
+          <Property Name="IsStoreRequest" Type="bit" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="MRPIgnore" Type="bit" />
+          <Property Name="WOPLastModifiedDate" Type="datetime" />
+          <Property Name="WOLastModifiedDate" Type="datetime" />
+        </EntityType>
+        <Function Name="THAS_CONNECT_CopyWorksOrderChanges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="THAS_CONNECT_CopyWorksOrderPartChanges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="THAS_CONNECT_GetWorksOrdersForAudit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="THAS_CONNECT_GetWorksOrdersForAuditLive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="THAS_CONNECT_WorksOrderAuditAdditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="THAS_CONNECT_WorksOrderAuditDeletions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="THAS_CONNECT_WorksOrderPartAuditAdditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ConnectDbModelStoreContainer">
+          <EntitySet Name="WOAuditChanges" EntityType="Self.WOAuditChanges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WOAuditDump" EntityType="Self.WOAuditDump" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WOAuditDumpLive" EntityType="Self.WOAuditDumpLive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WOAuditEntry" EntityType="Self.WOAuditEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WOAuditWONumbers" EntityType="Self.WOAuditWONumbers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WOAuditWOPNumbers" EntityType="Self.WOAuditWOPNumbers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WOPartAuditChanges" EntityType="Self.WOPartAuditChanges" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConnectDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="WOAuditChanx">
+          <Key>
+            <PropertyRef Name="WOAudit_ID" />
+          </Key>
+          <Property Name="WOAudit_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WOPart" Type="Int32" Nullable="false" />
+          <Property Name="WOTID" Type="Int32" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorksOrderType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WOMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BatchQuantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnHold" Type="Boolean" Nullable="false" />
+          <Property Name="Exclude" Type="Boolean" Nullable="false" />
+          <Property Name="WOIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompletionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ActualReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="WorksOrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompPartID" Type="Int32" />
+          <Property Name="CompPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlannedIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="DateTime" Precision="0" />
+          <Property Name="WOCompIssueStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompIssued" Type="Boolean" />
+          <Property Name="IsStoreRequest" Type="Boolean" />
+          <Property Name="SequenceNo" Type="Int32" />
+          <Property Name="MRPIgnore" Type="Boolean" />
+          <Property Name="WOPLastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="WOLastModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WOAuditDump">
+          <Key>
+            <PropertyRef Name="WODump_ID" />
+          </Key>
+          <Property Name="WODump_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WOPart" Type="Int32" Nullable="false" />
+          <Property Name="WOTID" Type="Int32" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorksOrderType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WOMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BatchQuantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnHold" Type="Boolean" Nullable="false" />
+          <Property Name="Exclude" Type="Boolean" Nullable="false" />
+          <Property Name="WOIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompletionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ActualReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="WorksOrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompPartID" Type="Int32" />
+          <Property Name="CompPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlannedIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="DateTime" Precision="0" />
+          <Property Name="WOCompIssueStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompIssued" Type="Boolean" />
+          <Property Name="IsStoreRequest" Type="Boolean" />
+          <Property Name="SequenceNo" Type="Int32" />
+          <Property Name="MRPIgnore" Type="Boolean" />
+          <Property Name="WOPLastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="WOLastModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WOAuditDumpLive">
+          <Key>
+            <PropertyRef Name="WODump_ID" />
+          </Key>
+          <Property Name="WODump_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WOPart" Type="Int32" Nullable="false" />
+          <Property Name="WOTID" Type="Int32" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorksOrderType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WOMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BatchQuantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QuantityStored" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WORespCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnHold" Type="Boolean" Nullable="false" />
+          <Property Name="Exclude" Type="Boolean" Nullable="false" />
+          <Property Name="WOIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompletionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ActualReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="WorksOrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompPartID" Type="Int32" />
+          <Property Name="CompPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlannedIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="DateTime" Precision="0" />
+          <Property Name="WOCompIssueStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompIssued" Type="Boolean" />
+          <Property Name="IsStoreRequest" Type="Boolean" />
+          <Property Name="SequenceNo" Type="Int32" />
+          <Property Name="MRPIgnore" Type="Boolean" />
+          <Property Name="WOPLastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="WOLastModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WOAuditEntry">
+          <Key>
+            <PropertyRef Name="WOAuditEntry_ID" />
+          </Key>
+          <Property Name="WOAuditEntry_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WOPart" Type="Int32" Nullable="false" />
+          <Property Name="WOTID" Type="Int32" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WOLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChangedFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChangedTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="WOAuditWONumber">
+          <Key>
+            <PropertyRef Name="WO_AuditID" />
+          </Key>
+          <Property Name="WO_AuditID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WOTID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WOAuditWOPNumber">
+          <Key>
+            <PropertyRef Name="WOP_AuditID" />
+          </Key>
+          <Property Name="WOP_AuditID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WOPart" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ReportConnectDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="WOAuditChanges" EntityType="Self.WOAuditChanx" />
+          <EntitySet Name="WOAuditDumps" EntityType="Self.WOAuditDump" />
+          <EntitySet Name="WOAuditDumpLives" EntityType="Self.WOAuditDumpLive" />
+          <EntitySet Name="WOAuditEntries" EntityType="Self.WOAuditEntry" />
+          <EntitySet Name="WOAuditWONumbers" EntityType="Self.WOAuditWONumber" />
+          <EntitySet Name="WOAuditWOPNumbers" EntityType="Self.WOAuditWOPNumber" />
+          <FunctionImport Name="THAS_CONNECT_CopyWorksOrderChanges" />
+          <FunctionImport Name="THAS_CONNECT_GetWorksOrdersForAudit" ReturnType="Collection(ConnectDbModel.THAS_CONNECT_GetWorksOrdersForAudit_Result)" />
+          <FunctionImport Name="THAS_CONNECT_GetWorksOrdersForAuditLive" ReturnType="Collection(ConnectDbModel.THAS_CONNECT_GetWorksOrdersForAuditLive_Result)" />
+          <FunctionImport Name="THAS_CONNECT_CopyWorksOrderPartChanges" />
+          <FunctionImport Name="THAS_CONNECT_WorksOrderAuditAdditions" ReturnType="Collection(ConnectDbModel.THAS_CONNECT_WorksOrderAuditAdditions_Result)" />
+          <FunctionImport Name="THAS_CONNECT_WorksOrderAuditDeletions" ReturnType="Collection(ConnectDbModel.THAS_CONNECT_WorksOrderAuditDeletions_Result)" />
+          <EntitySet Name="WOPartAuditChanges" EntityType="ConnectDbModel.WOPartAuditChanx" />
+          <FunctionImport Name="THAS_CONNECT_WorksOrderPartAuditAdditions" ReturnType="Collection(ConnectDbModel.THAS_CONNECT_WorksOrderPartAuditAdditions_Result)" />
+        </EntityContainer>
+        <ComplexType Name="THAS_CONNECT_GetWorksOrdersForAudit_Result">
+          <Property Type="Int32" Name="WOTID" Nullable="false" />
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="WorksOrderType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WOMethod" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="QuantityStored" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="WORespCode" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OnHold" Nullable="false" />
+          <Property Type="Boolean" Name="Exclude" Nullable="false" />
+          <Property Type="String" Name="WOIssue" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="false" />
+          <Property Type="DateTime" Name="ActualReceiptDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="WOLastModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="THAS_CONNECT_GetWorksOrdersForAuditLive_Result">
+          <Property Type="Int32" Name="WOTID" Nullable="false" />
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="WorksOrderType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WOMethod" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="QuantityStored" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="WORespCode" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OnHold" Nullable="false" />
+          <Property Type="Boolean" Name="Exclude" Nullable="false" />
+          <Property Type="String" Name="WOIssue" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="false" />
+          <Property Type="DateTime" Name="ActualReceiptDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="WOLastModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="THAS_CONNECT_WorksOrderAuditAdditions_Result">
+          <Property Type="Int32" Name="WOPart" Nullable="false" />
+          <Property Type="Int32" Name="WOTID" Nullable="false" />
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="WorksOrderType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WOMethod" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="QuantityStored" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="WORespCode" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OnHold" Nullable="false" />
+          <Property Type="Boolean" Name="Exclude" Nullable="false" />
+          <Property Type="String" Name="WOIssue" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="false" />
+          <Property Type="DateTime" Name="ActualReceiptDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="CompPartID" Nullable="true" />
+          <Property Type="String" Name="CompPartNumber" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="PlannedIssueQuantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ActualIssueQuantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PlannedIssueDate" Nullable="true" />
+          <Property Type="String" Name="WOCompIssueStatus" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="CompIssued" Nullable="true" />
+          <Property Type="Boolean" Name="IsStoreRequest" Nullable="true" />
+          <Property Type="Int32" Name="SequenceNo" Nullable="true" />
+          <Property Type="Boolean" Name="MRPIgnore" Nullable="true" />
+          <Property Type="DateTime" Name="WOPLastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="WOLastModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="THAS_CONNECT_WorksOrderAuditDeletions_Result">
+          <Property Type="Int32" Name="WOPart" Nullable="false" />
+          <Property Type="Int32" Name="WOTID" Nullable="false" />
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="WorksOrderType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WOMethod" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="QuantityStored" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="WORespCode" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OnHold" Nullable="false" />
+          <Property Type="Boolean" Name="Exclude" Nullable="false" />
+          <Property Type="String" Name="WOIssue" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="false" />
+          <Property Type="DateTime" Name="ActualReceiptDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="CompPartID" Nullable="true" />
+          <Property Type="String" Name="CompPartNumber" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="PlannedIssueQuantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ActualIssueQuantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PlannedIssueDate" Nullable="true" />
+          <Property Type="String" Name="WOCompIssueStatus" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="CompIssued" Nullable="true" />
+          <Property Type="Boolean" Name="IsStoreRequest" Nullable="true" />
+          <Property Type="Int32" Name="SequenceNo" Nullable="true" />
+          <Property Type="Boolean" Name="MRPIgnore" Nullable="true" />
+          <Property Type="DateTime" Name="WOPLastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="WOLastModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="WOPartAuditChanx">
+          <Key>
+            <PropertyRef Name="WOPartAudit_ID" />
+          </Key>
+          <Property Name="WOPartAudit_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WOPart" Type="Int32" Nullable="false" />
+          <Property Name="WOTID" Type="Int32" Nullable="false" />
+          <Property Name="WorksOrderNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorksOrderType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WOMethod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="QuantityStored" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="WORespCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnHold" Type="Boolean" Nullable="false" />
+          <Property Name="Exclude" Type="Boolean" Nullable="false" />
+          <Property Name="WOIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompletionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ActualReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="WorksOrderStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompPartID" Type="Int32" />
+          <Property Name="CompPartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlannedIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualIssueQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PlannedIssueDate" Type="DateTime" Precision="0" />
+          <Property Name="WOCompIssueStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompIssued" Type="Boolean" />
+          <Property Name="IsStoreRequest" Type="Boolean" />
+          <Property Name="SequenceNo" Type="Int32" />
+          <Property Name="MRPIgnore" Type="Boolean" />
+          <Property Name="WOPLastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="WOLastModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="THAS_CONNECT_WorksOrderPartAuditAdditions_Result">
+          <Property Type="Int32" Name="WOPart" Nullable="false" />
+          <Property Type="Int32" Name="WOTID" Nullable="false" />
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="WorksOrderType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WOMethod" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="QuantityStored" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="WORespCode" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OnHold" Nullable="false" />
+          <Property Type="Boolean" Name="Exclude" Nullable="false" />
+          <Property Type="String" Name="WOIssue" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="false" />
+          <Property Type="DateTime" Name="ActualReceiptDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="WorksOrderStatus" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="CompPartID" Nullable="true" />
+          <Property Type="String" Name="CompPartNumber" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="PlannedIssueQuantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ActualIssueQuantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PlannedIssueDate" Nullable="true" />
+          <Property Type="String" Name="WOCompIssueStatus" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="CompIssued" Nullable="true" />
+          <Property Type="Boolean" Name="IsStoreRequest" Nullable="true" />
+          <Property Type="Int32" Name="SequenceNo" Nullable="true" />
+          <Property Type="Boolean" Name="MRPIgnore" Nullable="true" />
+          <Property Type="DateTime" Name="WOPLastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="WOLastModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConnectDbModelStoreContainer" CdmEntityContainer="ReportConnectDbEntities">
+          <EntitySetMapping Name="WOAuditChanges">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOAuditChanx">
+              <MappingFragment StoreEntitySet="WOAuditChanges">
+                <ScalarProperty Name="WOAudit_ID" ColumnName="WOAudit_ID" />
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WOAuditDumps">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOAuditDump">
+              <MappingFragment StoreEntitySet="WOAuditDump">
+                <ScalarProperty Name="WODump_ID" ColumnName="WODump_ID" />
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WOAuditDumpLives">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOAuditDumpLive">
+              <MappingFragment StoreEntitySet="WOAuditDumpLive">
+                <ScalarProperty Name="WODump_ID" ColumnName="WODump_ID" />
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WOAuditEntries">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOAuditEntry">
+              <MappingFragment StoreEntitySet="WOAuditEntry">
+                <ScalarProperty Name="WOAuditEntry_ID" ColumnName="WOAuditEntry_ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WOLevel" ColumnName="WOLevel" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="ChangedFrom" ColumnName="ChangedFrom" />
+                <ScalarProperty Name="ChangedTo" ColumnName="ChangedTo" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WOAuditWONumbers">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOAuditWONumber">
+              <MappingFragment StoreEntitySet="WOAuditWONumbers">
+                <ScalarProperty Name="WO_AuditID" ColumnName="WO_AuditID" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WOAuditWOPNumbers">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOAuditWOPNumber">
+              <MappingFragment StoreEntitySet="WOAuditWOPNumbers">
+                <ScalarProperty Name="WOP_AuditID" ColumnName="WOP_AuditID" />
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWorksOrderChanges" FunctionName="ConnectDbModel.Store.THAS_CONNECT_CopyWorksOrderChanges" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetWorksOrdersForAudit" FunctionName="ConnectDbModel.Store.THAS_CONNECT_GetWorksOrdersForAudit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ConnectDbModel.THAS_CONNECT_GetWorksOrdersForAudit_Result">
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_GetWorksOrdersForAuditLive" FunctionName="ConnectDbModel.Store.THAS_CONNECT_GetWorksOrdersForAuditLive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ConnectDbModel.THAS_CONNECT_GetWorksOrdersForAuditLive_Result">
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_CopyWorksOrderPartChanges" FunctionName="ConnectDbModel.Store.THAS_CONNECT_CopyWorksOrderPartChanges" />
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_WorksOrderAuditAdditions" FunctionName="ConnectDbModel.Store.THAS_CONNECT_WorksOrderAuditAdditions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ConnectDbModel.THAS_CONNECT_WorksOrderAuditAdditions_Result">
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_WorksOrderAuditDeletions" FunctionName="ConnectDbModel.Store.THAS_CONNECT_WorksOrderAuditDeletions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ConnectDbModel.THAS_CONNECT_WorksOrderAuditDeletions_Result">
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="WOPartAuditChanges">
+            <EntityTypeMapping TypeName="ConnectDbModel.WOPartAuditChanx">
+              <MappingFragment StoreEntitySet="WOPartAuditChanges">
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOPartAudit_ID" ColumnName="WOPartAudit_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="THAS_CONNECT_WorksOrderPartAuditAdditions" FunctionName="ConnectDbModel.Store.THAS_CONNECT_WorksOrderPartAuditAdditions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ConnectDbModel.THAS_CONNECT_WorksOrderPartAuditAdditions_Result">
+                <ScalarProperty Name="WOPart" ColumnName="WOPart" />
+                <ScalarProperty Name="WOTID" ColumnName="WOTID" />
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderType" ColumnName="WorksOrderType" />
+                <ScalarProperty Name="WOMethod" ColumnName="WOMethod" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="QuantityStored" ColumnName="QuantityStored" />
+                <ScalarProperty Name="WORespCode" ColumnName="WORespCode" />
+                <ScalarProperty Name="OnHold" ColumnName="OnHold" />
+                <ScalarProperty Name="Exclude" ColumnName="Exclude" />
+                <ScalarProperty Name="WOIssue" ColumnName="WOIssue" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="ActualReceiptDate" ColumnName="ActualReceiptDate" />
+                <ScalarProperty Name="WorksOrderStatus" ColumnName="WorksOrderStatus" />
+                <ScalarProperty Name="CompPartID" ColumnName="CompPartID" />
+                <ScalarProperty Name="CompPartNumber" ColumnName="CompPartNumber" />
+                <ScalarProperty Name="PlannedIssueQuantity" ColumnName="PlannedIssueQuantity" />
+                <ScalarProperty Name="ActualIssueQuantity" ColumnName="ActualIssueQuantity" />
+                <ScalarProperty Name="PlannedIssueDate" ColumnName="PlannedIssueDate" />
+                <ScalarProperty Name="WOCompIssueStatus" ColumnName="WOCompIssueStatus" />
+                <ScalarProperty Name="CompIssued" ColumnName="CompIssued" />
+                <ScalarProperty Name="IsStoreRequest" ColumnName="IsStoreRequest" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="MRPIgnore" ColumnName="MRPIgnore" />
+                <ScalarProperty Name="WOPLastModifiedDate" ColumnName="WOPLastModifiedDate" />
+                <ScalarProperty Name="WOLastModifiedDate" ColumnName="WOLastModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
